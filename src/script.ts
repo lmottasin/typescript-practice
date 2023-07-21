@@ -1,53 +1,63 @@
-/* const multiply = (a : number, b : number) => {
-    return a * b;
-}
+// generic 
 
-console.log(multiply(30,20)); */
+/* const addId = (obj: object) => {
+    let id = Math.random() * 100;
+    return { ...obj, id};
+};
 
-// array
-
-/* let array = [ 'Shakib', 34 , true]
-
-array.push({
-    cricketBoard: 'bangaldesh'
+let user = addId({
+    name: 'mashrafi',
+    age: 40,
+    country: 'Bangladesh'
 }) */
 
-// object 
-/*  let cricketPlayerInfo = {
+// user.name
+
+// problem: cannot recognize name so add generic
+
+/* const addId = <T> (obj: T) => {
+    let id = Math.random() * 100;
+    return { ...obj, id};
+};
+
+let user = addId({
     name: 'mashrafi',
-    age: 34,
-    isCaptain: true
- }
+    age: 40,
+    country: 'Bangladesh'
+})
 
-cricketPlayerInfo.country = 'Bangladesh' 
-cricketPlayerInfo.age = '34' */
+user.name */
 
-/* type stringOrNum = string | number
-type userType = { name: string, age: number }
+// this time name is accessable
 
-const userData = (
-    id: stringOrNum,
-    user: userType
-) => {
-    console.log(`User id is ${id}, user name is ${user.name} 
-    age is ${user.age}`);
-}
+/* const addId = <T> (obj: T) => {
+    let id = Math.random() * 100;
+    return { ...obj, id};
+};
 
-console.log(userData(10,{
-    name: 'lemon',
-    age: 10
-})); */
+let user = 'mashrafi'
 
-// class type
+user.id */
 
-import { Player } from "./Classes/Player.js"
+// problem is we want that user sends object and some required field with extra fields that are optional
 
-const mashrafi = new Player('Mash', 40, 'Bangladesh')
-const sakib = new Player('Moina', 35, 'Bangladesh')
+const addId = <T extends {
+    name: string,
+    age: number
+}>(obj: T) => {
+    let id = Math.random() * 100;
+    return { ...obj, id };
+};
 
-const players: Player[] = []
-players.push(sakib)
+let user = addId({
+    name: 'mashrafi',
+    age: 40,
+    country: 'Bangladesh'
+})
 
-console.log(players);
+console.log(user.country);
 
-// access modifier
+
+// all accessable required and not requied fileds
+
+

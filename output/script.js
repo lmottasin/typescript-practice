@@ -1,43 +1,47 @@
-/* const multiply = (a : number, b : number) => {
-    return a * b;
-}
+"use strict";
+// generic 
+/* const addId = (obj: object) => {
+    let id = Math.random() * 100;
+    return { ...obj, id};
+};
 
-console.log(multiply(30,20)); */
-// array
-/* let array = [ 'Shakib', 34 , true]
-
-array.push({
-    cricketBoard: 'bangaldesh'
-}) */
-// object 
-/*  let cricketPlayerInfo = {
+let user = addId({
     name: 'mashrafi',
-    age: 34,
-    isCaptain: true
- }
+    age: 40,
+    country: 'Bangladesh'
+}) */
+// user.name
+// problem: cannot recognize name so add generic
+/* const addId = <T> (obj: T) => {
+    let id = Math.random() * 100;
+    return { ...obj, id};
+};
 
-cricketPlayerInfo.country = 'Bangladesh'
-cricketPlayerInfo.age = '34' */
-/* type stringOrNum = string | number
-type userType = { name: string, age: number }
+let user = addId({
+    name: 'mashrafi',
+    age: 40,
+    country: 'Bangladesh'
+})
 
-const userData = (
-    id: stringOrNum,
-    user: userType
-) => {
-    console.log(`User id is ${id}, user name is ${user.name}
-    age is ${user.age}`);
-}
+user.name */
+// this time name is accessable
+/* const addId = <T> (obj: T) => {
+    let id = Math.random() * 100;
+    return { ...obj, id};
+};
 
-console.log(userData(10,{
-    name: 'lemon',
-    age: 10
-})); */
-// class type
-import { Player } from "./Classes/Player.js";
-const mashrafi = new Player('Mash', 40, 'Bangladesh');
-const sakib = new Player('Moina', 35, 'Bangladesh');
-const players = [];
-players.push(sakib);
-console.log(players);
-// access modifier
+let user = 'mashrafi'
+
+user.id */
+// problem is we want that user sends object and some required field with extra fields that are optional
+const addId = (obj) => {
+    let id = Math.random() * 100;
+    return Object.assign(Object.assign({}, obj), { id });
+};
+let user = addId({
+    name: 'mashrafi',
+    age: 40,
+    country: 'Bangladesh'
+});
+console.log(user.country);
+// all accessable required and not requied fileds
