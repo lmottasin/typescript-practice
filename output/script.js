@@ -1,20 +1,9 @@
 "use strict";
-// generic with class
-var responseType;
-(function (responseType) {
-    responseType["GET"] = "get";
-    responseType["POST"] = "post";
-    responseType["PUT"] = "put";
-    responseType["PATCH"] = "patch";
-    responseType["DELETE"] = "delete";
-})(responseType || (responseType = {}));
-const response1 = {
-    status: 200,
-    type: responseType.DELETE,
-    data: {
-        name: 'sakib',
-        age: 35,
-        country: 'Bangladesh'
-    }
-};
-console.log(response1);
+// tuples
+let a = [3, 'hello', { p: 3 }];
+a[0] = '3';
+// I can assign number, string, object because ts implicitly imagine my a array type but not in order
+// so to give order use tupes
+let b = ['world', 4, { t: 3 }];
+b[0] = 3; // gives error
+console.log(b[0]);
