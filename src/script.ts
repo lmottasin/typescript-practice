@@ -40,22 +40,7 @@ console.log(userData(10,{
 
 // class type
 
-class Player {
-    name: string;
-    age: number;
-    country: string;
-
-    constructor(name: string, age: number, country: string){
-        this.name = name;
-        this.age = age
-        this.country = country
-    }
-
-    play(){
-        console.log(`${this.name}, age ${this.age} is 
-        playing for country ${this.country}`)
-    }
-}
+import { Player } from "./Classes/Player.js"
 
 const mashrafi = new Player('Mash', 40, 'Bangladesh')
 const sakib = new Player('Moina', 35, 'Bangladesh')
