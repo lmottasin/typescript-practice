@@ -8,4 +8,7 @@ export class Player {
         console.log(`${this.name}, age ${this.age} is 
         playing for country ${this.country}`);
     }
+    getAge() {
+        return this.age;
+    }
 }
