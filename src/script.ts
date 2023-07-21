@@ -40,7 +40,7 @@ console.log(userData(10,{
 
 // class type
 
-import { Player } from "./Classes/Player.js"
+/* import { Player } from "./Classes/Player.js"
 
 const mashrafi = new Player('Mash', 40, 'Bangladesh')
 const sakib = new Player('Moina', 35, 'Bangladesh')
@@ -48,6 +48,32 @@ const sakib = new Player('Moina', 35, 'Bangladesh')
 const players: Player[] = []
 players.push(sakib)
 
-console.log(players);
+console.log(players); */
 
-// access modifier
+// interface with functions
+
+interface RectangleOptionsInterface {
+    width: number;
+    height: number;
+}
+
+function drawRectangle(options: RectangleOptionsInterface){
+    console.log(options.width, options.height);
+}
+
+let threeDoptions = {
+    width: 10,
+    height: 10,
+    length: 10
+}
+
+// error 
+/* drawRectangle({
+    width: 10,
+    height: 10,
+    length: 100
+}) */
+
+// not error
+drawRectangle(threeDoptions)
+
